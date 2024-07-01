@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "Form Monitor",
+  "version": "1.0",
+  "description": "Monitora o texto no formulário e fornece sugestões.",
+  "icons": {
+    "16": "images/algarlogo.png",
+    "48": "images/algarlogo.png",
+    "128": "images/algarlogo.png"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/algarlogo.png",
+      "48": "images/algarlogo.png",
+      "128": "images/algarlogo.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://10.32.10.100:8443/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["images/robot-png_260997.png"],
+      "matches": ["https://10.32.10.100:8443/*"]
+    }
+  ],
+  "host_permissions": [
+    "https://10.32.10.100:8443/*"
+  ]
+}
